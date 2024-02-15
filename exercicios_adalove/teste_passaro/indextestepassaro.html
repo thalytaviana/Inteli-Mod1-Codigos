@@ -63,46 +63,32 @@
 // a função update define os "movimentos" dos personagens, sendo que ela funciona em loop.
 // acrescentei o while
 function update() {
-    while (passarinho.ida === true && passarinho.x <= 700) {
-        console.log("Movendo para a direita...");
-        passarinho.x += 5;
+    while ((passarinho.x === 100)) {
+        passarinho.setFlip(false, false);
+    }
+        if (passarinho.x < 700 && passarinho.ida === true) {
+            console.log("Sempre que a posição horizontal do pássaro for menor que 700, ele andará de 5 em 5, até chegar em 700. Isso fará com que ele chegue na direita");
+            passarinho.x += 5;
+        }
 
-        if (passarinho.x === 700) {
+        while (passarinho.x === 700) {
             passarinho.setFlip(true, false);
-            passarinho.ida = false;
+        }
+
+        if (passarinho.x > 100 && passarinho.ida === false) {
+            console.log("Sempre que a posição horizontal do pássaro for maior que 100, e ele não estiver indo; ele andará de volta para a esquerda de 5 em 5, até chegar ao 100. Isso fará com que ele volte para o início");
+            passarinho.x -= 5;
+        }
+
+        if (passarinho.y < 600 && passarinho.ida === true) {
+            console.log("Sempre que a posição vertical do pássaro for menor que 600, ele andará de 2 em 2, até chegar em 600.");
+            passarinho.y += 2;
+        }
+        if (passarinho.y > 300 && passarinho.ida === false) {
+            console.log("Sempre que a posição vertical do pássaro for maior que 300, e ele não estiver indo; ele andará de volta de 2 em 2, até chegar ao 300. Isso fará com que ele volte para o início");
+            passarinho.y -= 2;
         }
     }
-
-    while (passarinho.ida === false && passarinho.x >= 100) {
-        console.log("Movendo para a esquerda...");
-        passarinho.x -= 5;
-
-        if (passarinho.x === 100) {
-            passarinho.setFlip(false, false);
-            passarinho.ida = true;
-        }
-    }
-
-    while (passarinho.ida === true && passarinho.y <= 600) {
-        console.log("Movendo para baixo...");
-        passarinho.y += 2;
-
-        if (passarinho.y === 600) {
-            passarinho.setFlip(true, false);
-            passarinho.ida = false;
-        }
-    }
-
-    while (passarinho.ida === false && passarinho.y >= 300) {
-        console.log("Movendo para cima...");
-        passarinho.y -= 2;
-        
-        if (passarinho.y === 300) {
-            passarinho.setFlip(false, false);
-            passarinho.ida = true;
-        }
-    }
-}
 </script>
 
 </body>
