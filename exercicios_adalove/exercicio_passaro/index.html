@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
+    <!--define as configurações do site-->
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,12 +20,13 @@
 <body>
 
 <script>
-    // aqui temos de inicio as configurações básicas do jogo, como o tamanho da tela e as funções que serão exercidas
-   var config = {
+    // aqui temos de inicio as configurações básicas do jogo, como o tamanho da tela e as funções que serão exercidas //
+    var config = {
         type: Phaser.AUTO,
         width: 800,
         height: 600,
 
+        // aqui definimos as funções que serão exercidas dentro do código, sendo preload, create e update//
         scene: {
             preload: preload,
             create: create,
@@ -31,80 +34,57 @@
         }
     };
 
+    // aqui há as criações e definições das váriaveis e inicialização do jogo
     var game = new Phaser.Game(config);
 
     var passarinho;
-// A função preload carrega as imagens e recursos necessários do jogo que vai ser criado
-// Dentro dessa função colocamos o fundo e o pássaro já na tela do jogo.
+    var movimentoHorizontal = 0.8; // Velocidade horizontal do pássaro
+    var movimentoVertical = 0.8; // Velocidade vertical do pássaro
+
+    // aqui há o carregamento dos recursos
     function preload() {
         this.load.image('bg', 'assets/bg_space.png');
-        this.load.spritesheet ('bird', 'assets/bird-purple.png', {frameWidth: 75, frameHeight: 75});
+        this.load.spritesheet('bird', 'assets/bird-purple.png', {frameWidth: 75, frameHeight: 75});
     }
 
-    // dentro da função create encontramos os arquivos colocados no preload; no entanto aqui é a parte em que configuramos
-    // aqui definimos o tamanho do fundo e do pássaro
+    // aqui há a criação dos elementos colocados na função preload
     function create() {
-    this.add.image(400, 300, 'bg').setScale(1.2);
-    passarinho = this.add.sprite(100, 300, 'bird').setScale(1.3);
+        this.add.image(400, 300, 'bg').setScale(1.2);
+        passarinho = this.add.sprite(100, 300, 'bird').setScale(1.3);
 
-    // configura a animação do pássaro
-    this.anims.create({
-        key: 'fly',
-        frames: this.anims.generateFrameNumbers('bird', { start: 0, end: 7 }),
-        frameRate: 10,
-        repeat: -1
-    });
+        // nós configuramos aqui a animação realizada pelo pássaro e inicializa ela.
+        this.anims.create({
+            key: 'fly',
+            frames: this.anims.generateFrameNumbers('bird', {start: 0, end: 7}),
+            frameRate: 10,
+            repeat: -1
+        });
 
-    passarinho.anims.play('fly', true); 
-    // inicia a animação configurada
+        passarinho.anims.play('fly', true);
+    }
 
-}
-
-// a função update define os "movimentos" dos personagens, sendo que ela funciona em loop.
+    // a função update define os "movimentos" dos personagens, sendo que ela funciona em loop.
+    // tentei utilizar a váriavel for, sugestionada pelo professor no final do tutorial, e deu certo quando eu retirei o if dos outros
     function update() {
-    if (passarinho.x === 100) {
-        passarinho.setFlip(false, false);
-        passarinho.ida = true;
-    }
+        // Movimento horizontal
+        for (var i = 0; i < 2; i++) { // Reduz o número de passos para diminuir a velocidade
+            passarinho.x += movimentoHorizontal;
+            if (passarinho.x >= 700 || passarinho.x <= 100) {
+                movimentoHorizontal *= -1; // Inverte a direção do movimento
+                // Inverte a imagem do pássaro
+                passarinho.flipX = !passarinho.flipX;
+            }
+        }
 
-    if (passarinho.x < 700 && passarinho.ida === true) {
-        console.log("Sempre que a posição horizontal do pássaro for menor que 700, ele andará de 5 em 5, até chegar em 700. Isso fará com que ele chegue na direita");
-        passarinho.x += 5;
-    }
-
-    if (passarinho.x === 700) {
-        passarinho.setFlip(true, false);
-        passarinho.ida = false;
-    }
-
-    if (passarinho.x > 100 && passarinho.ida === false) {
-        console.log("Sempre que a posição horizontal do pássaro for maior que 100, e ele não estiver indo; ele andará de volta para a esquerda de 5 em 5, até chegar ao 100. Isso fará com que ele volte para o início");
-        passarinho.x -= 5;
-    }
-
-    if (passarinho.y === 300){
-        passarinho.setFlip(false, false);
-        passarinho.ida = true;
-       }
-
-       if (passarinho.y < 600 && passarinho.ida === true){
-        console.log ("Sempre que a posição vertical do pássaro for menor que 600, ele andará de 2 em 2, até chegar em 600.");
-        passarinho.y +=2;
-       }
-
-       if (passarinho.y === 600) {
-        passarinho.setFlip(true, false);
-        passarinho.ida = false;
-       }
-
-       if (passarinho.y > 300 && passarinho.ida === false){
-        console.log ("Sempre que a posição vertical do pássaro for maior que 300, e ele não estiver indo; ele andará de volta de 2 em 2, até chegar ao 300. Isso fará com que ele volte para o inicio");
-        passarinho.y -=2;
-       }
+        // Movimento vertical
+        for (var j = 0; j < 2; j++) { // Reduz o número de passos para diminuir a velocidade
+            passarinho.y += movimentoVertical;
+            if (passarinho.y >= 600 || passarinho.y <= 300) {
+                movimentoVertical *= -1; // Inverte a direção do movimento
+            }
+        }
     }
 </script>
 
 </body>
 </html>
-
-
