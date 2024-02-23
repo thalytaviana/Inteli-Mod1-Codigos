@@ -47,6 +47,9 @@
         var placar;
         var arvore;
 
+        // aqui criei a variavel de estrutura de dados tipo lista
+        var vetor = [0, 1, 2, 3];
+
         // aqui nós carregamos as imagens
         function preload() {
             this.load.image('background', 'assets/bg.png');
@@ -62,7 +65,8 @@
             this.add.image(larguraJogo/2, alturaJogo/2, 'background');
 
             // adiciona o foguinho do modo turbo
-           fogo= this.add.sprite(0, 0, 'turbo_nave');
+            // utilizei os vetores da variável lista
+           fogo= this.add.sprite(vetor[0], vetor[0], 'turbo_nave');
            fogo.setVisible(false);
 
            // adicionamos o alien e colocamos o comando para ele não cair do mundo
