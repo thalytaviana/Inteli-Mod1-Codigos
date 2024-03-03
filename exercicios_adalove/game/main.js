@@ -70,14 +70,14 @@ class CenaPrincipal extends Phaser.Scene {
             cachorro.setFlipX(false);
         }
 
-        // Transiciona para a próxima cena quando a contagem de petiscos atinge 5
-        if (petiscos >= 5) {
+        // Transiciona para a próxima cena quando a contagem de petiscos atinge 20
+        if (petiscos >= 20) {
             this.scene.transition({
                 target: 'CenaSegundaTela',
                 duration: 1000, // duração da transição em milissegundos
                 moveBelow: true,
                 onUpdate: this.transitionOut,
-                data: { score: petiscos } // você pode passar dados para a próxima cena se desejar
+                data: { score: petiscos } 
             });
         }
     }
@@ -92,7 +92,7 @@ const config = {
         default: 'arcade',
         arcade: {
             gravity: { y: 30 }, // define a gravidade do mundo
-            debug: true // habilita a visualização de debug
+            debug: false // desabilita a visualização de debug
         }
     },
     // Definição das cenas do jogo
