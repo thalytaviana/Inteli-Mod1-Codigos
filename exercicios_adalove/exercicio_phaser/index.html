@@ -1,0 +1,186 @@
+<!doctype html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8" />
+    <title>Making your first Phaser 3 Game - Part 1</title>
+    <script src="//cdn.jsdelivr.net/npm/phaser@3.11.0/dist/phaser.js"></script>
+    <style type="text/css">
+        body {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+<script type="text/javascript">
+
+    // local onde configuramos o jogo
+    var config = {
+        type: Phaser.AUTO, // contexto de renderização
+    width: 800, //largura do canvas
+    height: 600, // altura do canvas
+    physics: { //aqui informamos ao Phaser que nosso jogo exige da física Arcade
+        default: 'arcade',
+        arcade: {
+            gravity: { y: 300 },
+            debug: false
+        }
+    },
+    scene: {
+        preload: preload,
+        create: create,
+        update: update
+    }
+};
+
+// aqui temos todas as variáveis que utilizamos para fazer o jogo
+    var player; // variável do personagem
+    var score = 0; // variável para a pontuação real
+    var scoreText; // variável para guardar o objeto de texto da pontuação
+    var stars; // variável das estrelas
+    var platforms; // variável da plataforma
+    var cursors; // variável das teclas
+    var bombs; // variável das bombas
+
+    var game = new Phaser.Game(config);
+
+        // na função preload nós carregamos todas as imagens e assets que serão utilizadas no jogo
+    function preload (){
+    this.load.image('sky', 'assets/sky.png');
+    this.load.image('ground', 'assets/platform.png');
+    this.load.image('star', 'assets/star.png');
+    this.load.image('bomb', 'assets/bomb.png');
+    this.load.spritesheet('dude', 
+        'assets/dude.png',
+        { frameWidth: 32, frameHeight: 48 }
+    );
+}
+
+
+    // a função create exibe as imagens que carregamos no preload
+    function create (){
+        // adiciona a imagem do céu para ser o fundo do jogo e redefine a posição do desenho
+        this.add.image(0, 0, 'sky').setOrigin(0, 0)
+    
+// cria um novo frupo de física estática e o atribui à variável local platforms usando o sistema Arcade Physics.
+    platforms = this.physics.add.staticGroup();
+    platforms.create(400, 568, 'ground').setScale(2).refreshBody(); //adiciona uma plataforma e arrumamos o tamanho com setScale
+    platforms.create(600, 400, 'ground');
+    platforms.create(50, 250, 'ground');
+    platforms.create(750, 220, 'ground');
+    
+// aqui nós criamos o sprite
+    player = this.physics.add.sprite(100, 450, 'dude');
+    player.setBounce(0.2); // isso significa que quando ele aterrissar, ele saltará levemente
+    player.setCollideWorldBounds(true); // isso impede que o jogador saia das bordas da tela
+
+    // aqui nós criamos as animações que o personagem irá realizar
+
+    this.anims.create({ //animação para a esquerda
+        key: 'left',
+        frames: this.anims.generateFrameNumbers('dude', { start: 0, end: 3 }),
+        frameRate: 10,
+        repeat: -1
+});
+
+    this.anims.create({ //animação virando
+         key: 'turn',
+        frames: [ { key: 'dude', frame: 4 } ],
+        frameRate: 20
+});
+
+    this.anims.create({ //animação para a direita
+        key: 'right',
+        frames: this.anims.generateFrameNumbers('dude', { start: 5, end: 8 }),
+        frameRate: 10,
+        repeat: -1
+});
+
+    // aqui colocamos o gerenciador de inputs de teclado integrado do phaser
+    cursors = this.input.keyboard.createCursorKeys();
+
+    // cria o grupo stars dinâmico para as estrelas se moverem
+    stars = this.physics.add.group({
+    key: 'star', //define a key de textura para que os outros "filhos" criados recebam essa textura por padrão
+    repeat: 11, // define o valor repeat, isso significa que teremos 12 estrelas
+    setXY: { x: 12, y: 0, stepX: 70 } //define a posição de todas as 12 estrelas, começando no 12 e aumentando 70 a cada estrela adicionada
+});// o step serve para espaçar
+
+//  itera por todas as estrelas do grupo e fornece um valor de bounce Y aleatório entre 0,4 e 0,8
+stars.children.iterate(function (child) {
+    child.setBounceY(Phaser.Math.FloatBetween(0.4, 0.8));
+
+
+}); 
+// 16 x 16 é a coordenada em que o texto será exibido. 'score: 0' é a string padrão a ser exibida e o objeto a seguir contém o tamanho e cor da fonte.
+    scoreText = this.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#000' });
+    
+    // cria um grupo físico para a bomba
+    bombs = this.physics.add.group();
+
+    // aqui nós adicionamos todas as colisões que irão acontecer 
+    this.physics.add.collider(bombs, platforms);
+    this.physics.add.collider(player, bombs, hitBomb, null, this);
+    this.physics.add.collider(stars, platforms);
+    this.physics.add.collider(player, platforms);
+
+// verificamos se o jogador se sobrepõe a uma estrela ou não
+this.physics.add.overlap(player, stars, collectStar, null, this);
+}
+
+    function update (){
+          if (cursors.left.isDown){ // verifica se a tecla esquerda está pressionada
+    player.setVelocityX(-160); // aplicamos uma velocidade horizontal negativa
+    player.anims.play('left', true); //iniciamos a animação de execução 'left'
+     }
+
+        else if (cursors.right.isDown){ // verifica se a tecla direita está pressionada
+     player.setVelocityX(160); // aplicamos uma velocidade horizontal positiva
+    player.anims.play('right', true); //iniciamos a animação de execução 'right'
+     }
+
+        else{
+    player.setVelocityX(0); //deixa o personagem parado e não aplica nenhuma velocidade horizontal
+    player.anims.play('turn');
+    }
+
+    if (cursors.up.isDown && player.body.touching.down){ // confere se a tecla para cima está pressionada e se o personagem está no chão
+    player.setVelocityY(-330); // aplicamos uma velocidade vertical negativa
+    }
+}
+
+function collectStar (player, star)
+{
+    star.disableBody(true, true);
+    score += 10; // a cada estrela coletada o score aumenta
+    scoreText.setText('Score: ' + score); // o texto do placar aumenta conforme o score
+
+    if (stars.countActive(true) === 0) //nós utilizamos um método do Grupo chamado countActive para ver quantas estrelas sobraram vivas.
+    {
+        stars.children.iterate(function (child) { //nós utilizamos a função de iterate para reativar todas as estrelas e resetar suas posições para zero.
+            child.enableBody(true, child.x, 0, true, true);
+        });
+
+        var x = (player.x < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400);
+
+        // cria a bomba sempre no lado oposto ao player
+        var bomb = bombs.create(x, 16, 'bomb');
+        bomb.setBounce(1); // a bomba quica
+        bomb.setCollideWorldBounds(true); // a bomba colide com o mundo
+        bomb.setVelocity(Phaser.Math.Between(-200, 200), 20); // a velocidade da bombda é aleatória
+    // As bombas irão quicar nas plataformas
+    }
+}
+//se o player encostar nas bombas nós iremos chamar a função hitBomb
+    function hitBomb (player, bomb){
+        this.physics.pause();
+        player.setTint(0xff0000);
+        player.anims.play('turn');
+        gameOver = true;
+        // essa função irá parar o jogo e pintar o player de vermelho.
+}
+
+</script>
+
+</body>
+</html>
