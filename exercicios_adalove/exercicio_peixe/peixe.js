@@ -3,14 +3,20 @@ var config = {
     width:800,
     height:600,
 
+    scale: {
+        mode: Phaser.Scale.FIT,
+        autoCenter: Phaser.Scale.CENTER_BOTH
+     },
+ 
     scene: {
         preload: preload,
         create: create,
         update: update
     }
-};
-var game = new Phaser.Game (config);
 
+    
+};
+var game = new Phaser.Game (config); 
 var peixinho;
 
 function preload(){
@@ -30,6 +36,16 @@ function create (){
     peixinho = this.add.image (400,300, 'peixe');
     peixinho.setFlip (true,false);
 }
+
+ //evento de mudança de orientação
+ game.scale.on('orientationchange', function(orientation) {
+    if (orientation === Phaser.Scale.PORTRAIT) {
+        console.log('PORTRAIT')
+    }  
+    if (orientation === Phaser.Scale.LANDSCAPE) {
+        console.log('LANDSCAPE')
+    } 
+});
 
 function update() {
 
