@@ -43,3 +43,5 @@ function removerFruta(nomeFruta) {
       console.log(fruta);
     }
   }
+
+  mostrarEstoque();
