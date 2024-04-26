@@ -66,10 +66,40 @@
 &nbsp;&nbsp;&nbsp;&nbsp;Quando é necessário excluir um item do sistema, o método `deletar` é acionado, utilizando o `item` a ser excluído como parâmetro de entrada. A saída é um indicador de `sucesso` ou falha na exclusão do item.
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;Por fim, para editar conteúdo existente, o método `editar` é utilizado, recebendo o `idConteudo` do conteúdo a ser editado e o `novoConteudo` que substituirá o original. A saída é o `conteudoAtualizado`, que reflete as alterações feitas.
-- Explique como os controladores interagem com os modelos e views.
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Ademais, os *controllers* interagem com as *views* e com os *models*, sendo que os controladores batuam como intermediários entre os *models* e as *views*. Além disso, os controladores recebem entradas do usuário das *views* e as encaminham para os *models*.
 
 ### Views (Views):
-- Liste as views do seu projeto e sua função.
+As views do projeto são a tela de login, tela de cadastro, tela inicial, tela de perfil e tela de autoavaliação.
+1. Tela de Login:
+Exibir campos para inserção de nome de usuário e senha.
+Permitir que o usuário envie suas credenciais para autenticação.
+Exibir mensagens de erro caso as credenciais estejam incorretas.
+Possivelmente fornecer opções para redefinição de senha ou criação de uma nova conta.
+
+2. Tela de Cadastro:
+Exibir campos para inserção de informações necessárias para criar uma conta, como nome, email, senha, etc.
+Realizar validação dos dados inseridos pelo usuário.
+Enviar as informações para o servidor para criar uma nova conta no sistema.
+Exibir mensagens de sucesso ou erro após o processo de cadastro.
+
+3. Tela Inicial:
+Apresentar informações gerais sobre o sistema ou aplicação.
+Exibir conteúdo dinâmico dependendo do contexto da aplicação ou do usuário logado.
+Oferecer navegação para outras áreas da aplicação, como perfil, configurações, etc.
+Pode conter notificações ou atualizações relevantes para o usuário.
+
+4. Tela de Perfil:
+Exibir informações do usuário, como nome, foto, biografia, etc.
+Permitir que o usuário edite suas informações pessoais.
+Possibilitar a alteração de configurações relacionadas à conta.
+Pode exibir estatísticas, atividades recentes ou outras informações relevantes para o perfil do usuário.
+
+5. Tela de Autoavaliação:
+Apresentar questionários ou formulários para que o usuário avalie seu próprio desempenho, conhecimento ou habilidades.
+Permitir que o usuário selecione respostas ou forneça informações de acordo com as perguntas apresentadas.
+Realizar validação dos dados inseridos pelo usuário.
+Enviar as respostas para processamento e análise, possivelmente fornecendo feedback ao usuário após a conclusão.
 
 ### Infraestrutura:
 
