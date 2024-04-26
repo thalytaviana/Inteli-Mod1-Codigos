@@ -2,7 +2,7 @@
 
 
 - Nome do Projeto: Culturation
-- Descrição: O projeto Culturation baseia-se em um sistema web criado para a integração dos alunos que participam do jogo "Cesim Game", com o propósito de facilitar uma cooperação mais sólida e uma comunicação transparente entre os membros do grupo.
+- Descrição: O projeto Culturation é um sistema web criado para a integração dos alunos que participam do jogo "Cesim Game", com o propósito de facilitar uma cooperação mais efetiva e uma comunicação transparente entre os membros do grupo.
 - Arquitetura: MVC (Model-View-Controller)
 - Ferramenta de Diagramação: draw.io
 
@@ -40,7 +40,7 @@
 ### Modelos (Models):
 
 - Estudante: Esta é a entidade principal do projeto, pois armazena todos os dados dos alunos participantes do jogo. Os atributos incluem nome, idade, país, email, senha, gênero, grupo e faculdade. Os estudantes são os participantes ativos do jogo, que interagem com o sistema e entre si.
-- Tutor: Esta é a entidade que representa os professores ou orientadores do projeto. Eles têm atributos semelhantes aos dos estudantes, como nome, país, email, senha e gênero, além do grupo orientado e faculdade. Os tutores são responsáveis por orientar e apoiar os estudantes em seus objetivos na simulação.
+- Tutor: Esta é a entidade que representa os professores tutores do projeto. Eles têm atributos semelhantes aos dos estudantes, como nome, país, email, senha e gênero, além do grupo orientado e faculdade. Os tutores são responsáveis por orientar e apoiar os estudantes em seus objetivos na simulação, e dar as devidas orientações.
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;A relação entre essas entidades é de que um tutor pode orientar um ou mais grupos. Isso significa que um grupo de estudantes pode estar associado a um tutor específico. Por exemplo, um tutor pode ser responsável por orientar um grupo de estudantes em um determinado momento.
 
@@ -68,7 +68,7 @@
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;Por fim, para editar conteúdo existente, o método `editar` é utilizado, recebendo o `idConteudo` do conteúdo a ser editado e o `novoConteudo` que substituirá o original. A saída é o `conteudoAtualizado`, que reflete as alterações feitas.
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;Ademais, os controllers interagem com as views e com os models, sendo que os controladores batuam como intermediários entre os models e as views. Além disso, os controladores recebem entradas do usuário das views e as encaminham para os models.
+&nbsp;&nbsp;&nbsp;&nbsp;Ademais, os controllers interagem com as views e com os models, sendo que os controladores atuam como intermediários entre os models e as views. Além disso, os controladores recebem entradas do usuário das views e as encaminham para os models.
 
 ### Views (Views):
 As views do projeto são a tela de login, tela de cadastro, tela inicial, tela de perfil e tela de autoavaliação.
@@ -109,9 +109,17 @@ Envia as respostas para processamento e análise, possivelmente fornecendo feedb
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;Além disso, há também as APIs externas que são ligadas com os controladores, sendo que ele processam os dados das APIs e utiliza da forma adequada na aplicação.
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;Por fim, há o Render, que faz toda a renderização da interface do usuário. O controller determina quais views devem ser renderizadas com base na ação do usuário. São eles que passam os dados para renderização, exibindo assim a interface apropriada.
+&nbsp;&nbsp;&nbsp;&nbsp;Por fim, há o Render, que faz toda a renderização da interface do usuário. Sendo que o controller determina quais views devem ser renderizadas com base na ação do usuário e são eles que passam os dados para renderização, exibindo assim a interface apropriada pelo próprio Render.
 
 
 ### Justifique as escolhas feitas e como elas impactam o projeto.
 #### Implicações da Arquitetura:
-Descreva as implicações da arquitetura em termos de escalabilidade, manutenção, testabilidade e outros aspectos importantes.
+A escolha da arquitetura MVC (Model-View-Controller) para o projeto Culturation oferece uma estrutura modular, dividida em três partes:
+- Modelos (Models):
+Define entidades como Estudante e Tutor, facilitando a manipulação e persistência de dados no banco de dados PostgreSQL.
+- Controladores (Controllers):
+Responsáveis pela lógica de negócios, como Procurar, Clicar, entre outros, gerenciando interações do usuário e facilitando a implementação de novos recursos.
+- Views (Views):
+Apresentam interfaces intuitivas, como Tela de Login, Tela de Cadastro, proporcionando uma experiência de usuário amigável e personalizável.
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Essa arquitetura impacta positivamente o projeto em termos de escalabilidade, manutenção e testabilidade, além de integrar-se eficientemente à infraestrutura, incluindo o PostgreSQL para armazenamento de dados, APIs externas para ampliação de funcionalidades e Render para renderização da interface do usuário. Em resumo, o MVC permite o desenvolvimento de um sistema web eficiente e robusto para atender às necessidades dos usuários.
