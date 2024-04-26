@@ -125,30 +125,9 @@ Apresentam interfaces intuitivas, como Tela de Login, Tela de Cadastro, proporci
 &nbsp;&nbsp;&nbsp;&nbsp;Essa arquitetura impacta positivamente o projeto em termos de escalabilidade, manutenção e testabilidade, além de integrar-se eficientemente à infraestrutura, incluindo o PostgreSQL para armazenamento de dados, APIs externas para ampliação de funcionalidades e Render para renderização da interface do usuário. Em resumo, o MVC permite o desenvolvimento de um sistema web eficiente para atender às necessidades dos usuários.
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp; Em questão de escabilidade, o projeto mantém um fluxo uniforme, onde cada tela se interliga e depende da anterior para fazer sentido. Sem dúvidas, é necessário ter uma manutenção periodicamente, visto que é um sistema frágil e de constante mudança, além de promover um sentimento de importância aos usuários, ao manter o sistema atualizado. Além disso, sobre a testabilidade, cada tela tem seus aspectos, e podem ser testadas de várias formas, alguns exemplos são:
-<br>
-- Tela de login
-Verificar se o sistema aceita corretamente credenciais válidas de usuários registrados.
-<br>
 
-Inserir um nome de usuário e senha corretos e verificar se o acesso é concedido.
-- Tela de cadastro
-Verificar se o sistema valida corretamente os campos obrigatórios durante o processo de registro.
-<br>
-
-Tentar submeter o formulário de cadastro com campos em branco e verificar se o sistema exibe mensagens de erro apropriadas.
-- Tela inicial
-Verificar se a interface de usuário na tela inicial é intuitiva e fácil de usar.
-<br>
-
-Avaliar a clareza das informações apresentadas e a facilidade de interação com os elementos da tela.
-- Tela de perfil
-Verificar se os usuários podem editar suas informações pessoais na tela de perfil.
-<br>
-
-Testar a funcionalidade de editar campos como nome e foto.
-- Tela de autoavaliação
-Verificar se os usuários podem iniciar e completar uma avaliação com sucesso.
-<br>
-Verificar se os questionários e formulários são exibidos corretamente na tela de autoavaliação.
-<br>
-Testar a funcionalidade de apresentação de perguntas de forma clara e organizada, garantindo que os usuários possam responder de maneira adequada.
+- Tela de login: Verificar se o sistema aceita corretamente credenciais válidas de usuários registrados, e inserir um nome de usuário e senha corretos e verificar se o acesso é concedido.
+- Tela de cadastro: Verificar se o sistema valida corretamente os campos obrigatórios durante o processo de registro, e tentar submeter o formulário de cadastro com campos em branco e verificar se o sistema exibe mensagens de erro apropriadas.
+- Tela inicial: Verificar se a interface de usuário na tela inicial é intuitiva e fácil de usar, e avaliar a clareza das informações apresentadas e a facilidade de interação com os elementos da tela.
+- Tela de perfil: verificar se os usuários podem editar suas informações pessoais na tela de perfil, e testar a funcionalidade de editar campos como nome e foto.
+- Tela de autoavaliação: Verificar se os usuários podem iniciar e completar uma avaliação com sucesso, como também se os questionários e formulários são exibidos corretamente na tela de autoavaliação. Além disso, testar a funcionalidade de apresentação de perguntas de forma clara e organizada, garantindo que os usuários possam responder de maneira adequada.
