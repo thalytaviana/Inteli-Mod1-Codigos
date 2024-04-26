@@ -12,7 +12,7 @@
 
 <div align="center">
   <sub>Figura 1 - Arquitetura MVC: Tela Incial </sub>
-  <img src="../assets/MVC3.jpg" width="100%">
+  <img src="./assets/MVC3.jpg" width="100%">
   <sup>Fonte: Elaborado pela autora (2024)</sup>
 </div>
 
