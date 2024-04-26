@@ -1,3 +1,11 @@
+# <a name="c1"></a>Arquitetura MVC
+
+
+- Nome do Projeto: [Insira o nome do seu projeto]
+- Descrição: [Insira uma breve descrição do seu projeto]
+- Arquitetura: MVC (Model-View-Controller)
+- Ferramenta de Diagramação: [Insira a ferramenta de diagramação utilizada, ex: draw.io]
+
 <div align="center">
   <sub>Figura 1 - Arquitetura MVC: Login </sub>
   <img src="./assets/MVC1.jpg" width="100%">
@@ -28,12 +36,6 @@
   <sup>Fonte: Elaborado pela autora (2024)</sup>
 </div>
 
-
-
-- Nome do Projeto: [Insira o nome do seu projeto]
-- Descrição: [Insira uma breve descrição do seu projeto]
-- Arquitetura: MVC (Model-View-Controller)
-- Ferramenta de Diagramação: [Insira a ferramenta de diagramação utilizada, ex: draw.io]
 
 ### Modelos (Models):
 - Descreva as entidades do seu projeto e seus atributos.
