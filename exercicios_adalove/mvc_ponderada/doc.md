@@ -40,8 +40,7 @@
 ### Modelos (Models):
 
 - Estudante: Esta é a entidade principal do projeto, pois armazena todos os dados dos alunos participantes do jogo. Os atributos incluem nome, idade, país, email, senha, gênero, grupo e faculdade. Os estudantes são os participantes ativos do jogo, que interagem com o sistema e entre si.
-- Tutor: Esta é a entidade que representa os professores tutores do projeto. Eles têm atributos semelhantes aos dos estudantes, como nome, país, email, senha e gênero, além do grupo orientado e faculdade. Os tutores são responsáveis por orientar e apoiar os estudantes em seus objetivos na simulação, e dar as devidas orientações.
-<br>
+- Tutor: Esta é a entidade que representa os professores tutores do projeto. Eles têm atributos semelhantes aos dos estudantes, como nome, país, email, senha e gênero, além do grupo orientado e faculdade. Os tutores são responsáveis por orientar e apoiar os estudantes em seus objetivos na simulação, e dar as devidas orientações.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;A relação entre essas entidades é de que um tutor pode orientar um ou mais grupos. Isso significa que um grupo de estudantes pode estar associado a um tutor específico. Por exemplo, um tutor pode ser responsável por orientar um grupo de estudantes em um determinado momento.
 
 ### Controladores (Controllers):
@@ -120,8 +119,7 @@ Define entidades como Estudante e Tutor, facilitando a manipulação e persistê
 - Controladores (Controllers):
 Responsáveis pela lógica de negócios, como Procurar, Clicar, entre outros, gerenciando interações do usuário e facilitando a implementação de novos recursos.
 - Views (Views):
-Apresentam interfaces intuitivas, como Tela de Login, Tela de Cadastro, proporcionando uma experiência de usuário amigável e personalizável.
-<br>
+Apresentam interfaces intuitivas, como Tela de Login, Tela de Cadastro, proporcionando uma experiência de usuário amigável e personalizável. <br>
 &nbsp;&nbsp;&nbsp;&nbsp;Essa arquitetura impacta positivamente o projeto em termos de escalabilidade, manutenção e testabilidade, além de integrar-se eficientemente à infraestrutura, incluindo o PostgreSQL para armazenamento de dados, APIs externas para ampliação de funcionalidades e Render para renderização da interface do usuário. Em resumo, o MVC permite o desenvolvimento de um sistema web eficiente para atender às necessidades dos usuários.
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp; Em questão de escabilidade, o projeto mantém um fluxo uniforme, onde cada tela se interliga e depende da anterior para fazer sentido. Sem dúvidas, é necessário ter uma manutenção periodicamente, visto que é um sistema frágil e de constante mudança, além de promover um sentimento de importância aos usuários, ao manter o sistema atualizado. Além disso, sobre a testabilidade, cada tela tem seus aspectos, e podem ser testadas de várias formas, alguns exemplos são:
