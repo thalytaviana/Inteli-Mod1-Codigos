@@ -1,12 +1,12 @@
 <div align="center">
   <sub>Figura 1 - Arquitetura MVC: Login </sub>
-  <img src="/assets/MVC1.jpg" width="100%">
+  <img src="./assets/MVC1.jpg" width="100%">
   <sup>Fonte: Elaborado pela autora (2024)</sup>
 </div>
 
 <div align="center">
   <sub>Figura 1 - Arquitetura MVC: Cadastro </sub>
-  <img src="../assets/MVC2.jpg" width="100%">
+  <img src="./assets/MVC2.jpg" width="100%">
   <sup>Fonte: Elaborado pela autora (2024)</sup>
 </div>
 
@@ -18,13 +18,13 @@
 
 <div align="center">
   <sub>Figura 1 - Arquitetura MVC: Perfil </sub>
-  <img src="../assets/MVC4.jpg" width="100%">
+  <img src="./assets/MVC4.jpg" width="100%">
   <sup>Fonte: Elaborado pela autora (2024)</sup>
 </div>
 
 <div align="center">
   <sub>Figura 1 - Arquitetura MVC: Autoavaliação</sub>
-  <img src="../assets/MVC5.jpg" width="100%">
+  <img src="./assets/MVC5.jpg" width="100%">
   <sup>Fonte: Elaborado pela autora (2024)</sup>
 </div>
 
