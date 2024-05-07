@@ -1,11 +1,9 @@
-# Ponderada_3
-
 # Modelagem de Banco de Dados
 
 ![Modelo_relacional.png](assets/modelorelacional.jpg)
 
 
-# Readme
+# Introdução
 - Nome do Projeto: Modelagem de Banco de Dados do site Culturation para a faculdade ZUYD.
 - Descrição: O propósito deste documento README é introduzir a ponderada da semana 3, que solicitou a aplicação dos princípios de relacionamento 1:N (um para muitos), N:N (muitos para muitos) e 1:1 (um para um), e a conexão entre chaves primárias e estrangeiras. Este trabalho está em conformidade com as regras de negócio estabelecidas pelo parceiro desde a primeira sprint.
  - Este repositório contém os arquivos de modelagem (.xml) e a documentação em markdown.
