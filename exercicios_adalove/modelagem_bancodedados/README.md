@@ -18,7 +18,7 @@
 <br>
 
 ## Usuário:
-A entidade Usuários representa os usuários do sistema.
+A entidade Usuário representa os usuários do sistema.
 ### Atributos:
 - id_usuário: identificador próprio de cada pessoa que se cadastra.
 - nome: nome do usuário.
@@ -26,6 +26,8 @@ A entidade Usuários representa os usuários do sistema.
 - faculdade: faculdade do usuário
 - idade: idaide do usuário.
 - país: país em que o usuário nasceu.
+
+<br>
 
 ## Função:
 A entidade função representa a função que o usuário poderá exercer dentro da plataforma.
@@ -35,6 +37,8 @@ A entidade função representa a função que o usuário poderá exercer dentro 
 - estudante: atributo de estudante para a pessoa que exerce essa função.
 - tutor: atributo de tutor para a pessoa que exerce essa função.
 
+<br>
+
 ## Time:
 A entidade time reune todos os usuários que possuem funções e os dividem pelo time.
 ### Atributos:
@@ -43,12 +47,16 @@ A entidade time reune todos os usuários que possuem funções e os dividem pelo
 - cor_do_time: atributo que diferencia cada time dentro do universo.
 - universo: atributo que diferencia cada "mundo" dentro do jogo, sendo que é utilizado para não repetir cores dentro do mesmo universo.
 
+<br>
+
 ## Perguntas:
 Entidade que gera as perguntas de cada questionário.
 ### Atributos:
 - id_pergunta: chave-primária que define o identificador próprio de cada pergunta.
 - pergunta_dm: perguntas que são direcionadas para o perfil de tomador de decisão.
 - pergunta_collab:perguntas que são direcionada para o perfil de colaborador.
+
+<br>
 
 ## Respostas:
 Entidade que armazena as respostas de cada pergunta para gerar o perfil.
@@ -58,6 +66,8 @@ Entidade que armazena as respostas de cada pergunta para gerar o perfil.
 - resposta_collab: respostas que geram o perfil de colaborador.
 - id_pergunta: chave-estrangeira que deriva da entidade de perguntas.
 
+<br>
+
 ## Perfis:
 Entidade que gera o perfil de cada estudante dentro do jogo por meio das respostas respondidas.
 ### Atributos:
@@ -65,6 +75,8 @@ Entidade que gera o perfil de cada estudante dentro do jogo por meio das respost
 - id_perfil: chave primária que define o perfil derivado das perguntas e respostas.
 - id_resposta: chave-estrangeira que deriva da entidade "respostas".
 - auto_avaliação: atributo que gera o questionário de auto-avaliação.
+
+<br>
 
 ## Avaliação_pares:
 A entidade avaliação de pares serve para cada usuário avaliar um estudante. 
