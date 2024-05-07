@@ -92,95 +92,167 @@ A entidade avaliação de pares serve para cada usuário avaliar um estudante.
 <!-- SQL XML created by WWW SQL Designer, https://github.com/ondras/wwwsqldesigner/ -->
 <!-- Active URL: https://sql.toad.cz/ -->
 <sql>
-  <datatypes db="mysql">
-    <group label="Numeric" color="rgb(238,238,170)">
-      <type label="Integer" length="0" sql="INTEGER" quote=""/>
-      <type label="TINYINT" length="0" sql="TINYINT" quote=""/>
-      <type label="SMALLINT" length="0" sql="SMALLINT" quote=""/>
-      <type label="MEDIUMINT" length="0" sql="MEDIUMINT" quote=""/>
-      <type label="INT" length="0" sql="INT" quote=""/>
-      <type label="BIGINT" length="0" sql="BIGINT" quote=""/>
-      <type label="Decimal" length="1" sql="DECIMAL" re="DEC" quote=""/>
-      <type label="Single precision" length="0" sql="FLOAT" quote=""/>
-      <type label="Double precision" length="0" sql="DOUBLE" re="DOUBLE" quote=""/>
-    </group>
+<datatypes db="mysql">
+	<group label="Numeric" color="rgb(238,238,170)">
+		<type label="Integer" length="0" sql="INTEGER" quote=""/>
+	 	<type label="TINYINT" length="0" sql="TINYINT" quote=""/>
+	 	<type label="SMALLINT" length="0" sql="SMALLINT" quote=""/>
+	 	<type label="MEDIUMINT" length="0" sql="MEDIUMINT" quote=""/>
+	 	<type label="INT" length="0" sql="INT" quote=""/>
+		<type label="BIGINT" length="0" sql="BIGINT" quote=""/>
+		<type label="Decimal" length="1" sql="DECIMAL" re="DEC" quote=""/>
+		<type label="Single precision" length="0" sql="FLOAT" quote=""/>
+		<type label="Double precision" length="0" sql="DOUBLE" re="DOUBLE" quote=""/>
+	</group>
 
-    <group label="Character" color="rgb(255,200,200)">
-      <type label="Char" length="1" sql="CHAR" quote="'"/>
-      <type label="Varchar" length="1" sql="VARCHAR" quote="'"/>
-      <type label="Text" length="0" sql="MEDIUMTEXT" re="TEXT" quote="'"/>
-      <type label="Binary" length="1" sql="BINARY" quote="'"/>
-      <type label="Varbinary" length="1" sql="VARBINARY" quote="'"/>
-      <type label="BLOB" length="0" sql="BLOB" re="BLOB" quote="'"/>
-    </group>
+	<group label="Character" color="rgb(255,200,200)">
+		<type label="Char" length="1" sql="CHAR" quote="'"/>
+		<type label="Varchar" length="1" sql="VARCHAR" quote="'"/>
+		<type label="Text" length="0" sql="MEDIUMTEXT" re="TEXT" quote="'"/>
+		<type label="Binary" length="1" sql="BINARY" quote="'"/>
+		<type label="Varbinary" length="1" sql="VARBINARY" quote="'"/>
+		<type label="BLOB" length="0" sql="BLOB" re="BLOB" quote="'"/>
+	</group>
 
-    <group label="Date &amp; Time" color="rgb(200,255,200)">
-      <type label="Date" length="0" sql="DATE" quote="'"/>
-      <type label="Time" length="0" sql="TIME" quote="'"/>
-      <type label="Datetime" length="0" sql="DATETIME" quote="'"/>
-      <type label="Year" length="0" sql="YEAR" quote=""/>
-      <type label="Timestamp" length="0" sql="TIMESTAMP" quote="'"/>
-    </group>
-    
-    <group label="Miscellaneous" color="rgb(200,200,255)">
-      <type label="ENUM" length="1" sql="ENUM" quote=""/>
-      <type label="SET" length="1" sql="SET" quote=""/>
-      <type label="Bit" length="0" sql="bit" quote=""/>
-    </group>
-  </datatypes>
-
-  <table x="543" y="42" name="time">
-    <row name="id_time" null="1" autoincrement="1">
-      <datatype>INTEGER</datatype>
-      <default>NULL</default>
-    </row>
-    <row name="id_função" null="1" autoincrement="0">
-      <datatype>INTEGER</datatype>
-      <default>NULL</default>
-      <relation table="função" row="id_função" />
-    </row>
-    <row name="cor_do_time" null="1" autoincrement="0">
-      <datatype>CHAR</datatype>
-      <default>NULL</default>
-    </row>
-    <row name="universo" null="1" autoincrement="0">
-      <datatype>VARCHAR</datatype>
-      <default>NULL</default>
-    </row>
-    <key type="PRIMARY" name="">
-      <part>id_time</part>
-    </key>
-  </table>
-
-  <table x="100" y="43" name="usuário">
-    <row name="id_usuário" null="1" autoincrement="1">
-      <datatype>INTEGER</datatype>
-      <default>NULL</default>
-    </row>
-    <row name="nome" null="1" autoincrement="0">
-      <datatype>VARCHAR</datatype>
-      <default>NULL</default>
-    </row>
-    <row name="senha" null="1" autoincrement="0">
-      <datatype>VARCHAR</datatype>
-      <default>NULL</default>
-    </row>
-    <row name="faculdade" null="1" autoincrement="0">
-      <datatype>VARCHAR</datatype>
-      <default>NULL</default>
-    </row>
-    <row name="idade" null="1" autoincrement="0">
-      <datatype>VARCHAR</datatype>
-      <default>NULL</default>
-    </row>
-    <row name="país" null="1" autoincrement="0">
-      <datatype>CHAR</datatype>
-      <default>NULL</default>
-    </row>
-    <key type="PRIMARY" name="">
-      <part>id_usuário</part>
-    </key>
-  </table>
+	<group label="Date &amp; Time" color="rgb(200,255,200)">
+		<type label="Date" length="0" sql="DATE" quote="'"/>
+		<type label="Time" length="0" sql="TIME" quote="'"/>
+		<type label="Datetime" length="0" sql="DATETIME" quote="'"/>
+		<type label="Year" length="0" sql="YEAR" quote=""/>
+		<type label="Timestamp" length="0" sql="TIMESTAMP" quote="'"/>
+	</group>
+	
+	<group label="Miscellaneous" color="rgb(200,200,255)">
+		<type label="ENUM" length="1" sql="ENUM" quote=""/>
+		<type label="SET" length="1" sql="SET" quote=""/>
+		<type label="Bit" length="0" sql="bit" quote=""/>
+	</group>
+</datatypes><table x="543" y="42" name="time">
+<row name="id_time" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="id_função" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="função" row="id_função" />
+</row>
+<row name="cor_do_time" null="1" autoincrement="0">
+<datatype>CHAR</datatype>
+<default>NULL</default></row>
+<row name="universo" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id_time</part>
+</key>
+</table>
+<table x="100" y="43" name="usuário">
+<row name="id_usuário" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="nome" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="senha" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="faculdade" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="idade" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="país" null="1" autoincrement="0">
+<datatype>CHAR</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id_usuário</part>
+</key>
+</table>
+<table x="321" y="403" name="perguntas">
+<row name="id_pergunta" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="pergunta_dm" null="1" autoincrement="0">
+<datatype>CHAR</datatype>
+<default>NULL</default></row>
+<row name="pergunta_collab" null="1" autoincrement="0">
+<datatype>CHAR</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id_pergunta</part>
+</key>
+</table>
+<table x="523" y="334" name="respostas">
+<row name="id_resposta" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="resposta_dm" null="1" autoincrement="0">
+<datatype>CHAR</datatype>
+<default>NULL</default></row>
+<row name="resposta_collab" null="1" autoincrement="0">
+<datatype>CHAR</datatype>
+<default>NULL</default></row>
+<row name="id_pergunta" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="perguntas" row="id_pergunta" />
+</row>
+<key type="PRIMARY" name="">
+<part>id_resposta</part>
+</key>
+</table>
+<table x="375" y="191" name="avaliação_pares">
+<row name="id_pares" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="id_perfil" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="perfis" row="id_perfil" />
+</row>
+<row name="id_função" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="função" row="id_função" />
+</row>
+<key type="PRIMARY" name="">
+<part>id_pares</part>
+</key>
+</table>
+<table x="653" y="191" name="perfis">
+<row name="id_time" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="time" row="id_time" />
+</row>
+<row name="id_perfil" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="id_resposta" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="respostas" row="id_resposta" />
+</row>
+<row name="auto_avaliação" null="1" autoincrement="0">
+<datatype>CHAR</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id_perfil</part>
+</key>
+</table>
+<table x="330" y="42" name="função">
+<row name="id_usuário" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="usuário" row="id_usuário" />
+</row>
+<row name="id_função" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="estudante" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="tutor" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id_função</part>
+</key>
+</table>
 </sql>
 
 
