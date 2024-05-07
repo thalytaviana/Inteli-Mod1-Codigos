@@ -6,13 +6,16 @@
 
 
 # Readme
-- Nome do Projeto: Modelagem de Banco de Dados
-- Descrição: O propósito deste documento README é introduzir a ponderada da semana 3, que solicitou a aplicação dos princípios de relacionamento 1:N (um para muitos), N:N (muitos para muitos) e a conexão entre chaves primárias e estrangeiras. Este trabalho está em conformidade com as regras de negócio estabelecidas pelo parceiro desde a primeira sprint; o modelo inclui uma documentação detalhada em markdown. Este repositório contém os arquivos de modelagem (.xml) e documentação.
-Uma estrutura de banco de dados bem elaborada é fundamental para assegurar a eficiência, integridade e consistência dos dados em um sistema de gerenciamento de banco de dados
+- Nome do Projeto: Modelagem de Banco de Dados do site Culturation para a faculdade ZUYD.
+- Descrição: O propósito deste documento README é introduzir a ponderada da semana 3, que solicitou a aplicação dos princípios de relacionamento 1:N (um para muitos), N:N (muitos para muitos) e 1:1 (um para um), e a conexão entre chaves primárias e estrangeiras. Este trabalho está em conformidade com as regras de negócio estabelecidas pelo parceiro desde a primeira sprint.
+ - Este repositório contém os arquivos de modelagem (.xml) e a documentação em markdown.
 - Arquitetura: Banco de Dados Relacional
 - Ferramenta de Diagramação: SQL Designer
+&nbsp;&nbsp;&nbsp;&nbsp;Uma estrutura de banco de dados bem elaborada é fundamental para assegurar a eficiência, integridade e consistência dos dados em um sistema de gerenciamento de banco de dados.
 
 # 1. Modelagem Relacional:
+&nbsp;&nbsp;&nbsp;&nbsp; A modelagem relacional é um processo de organização e representação de dados em tabelas inter-relacionadas, utilizando conceitos de entidades, atributos e relacionamentos, seguindo os princípios da teoria das relações do modelo relacional de banco de dados.
+<br>
 
 ## Usuário:
 A entidade Usuários representa os usuários do sistema.
