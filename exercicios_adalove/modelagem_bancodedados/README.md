@@ -4,6 +4,7 @@
  - Este repositório contém os arquivos de modelagem (.xml) e a documentação em markdown.
 - Arquitetura: Banco de Dados Relacional
 - Ferramenta de Diagramação: SQL Designer
+<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Uma estrutura de banco de dados bem elaborada é fundamental para assegurar a eficiência, integridade e consistência dos dados em um sistema de gerenciamento de banco de dados.
 
 # Modelagem de Banco de Dados
