@@ -21,5 +21,9 @@ module.exports.policies = {
   'legal/view-terms': true,
   'legal/view-privacy': true,
   'deliver-contact-form-message': true,
-
+    'UsuarioController': {
+      'showUserForm': true,
+      'create': true,
+      'read': true,
+  }
 };
